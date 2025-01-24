@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+
+@theme {
+  --color-*: initial;
+  --color-whitish-yellow: #FEF7EE;
+  --color-yellowish: #F6C768;
+  --color-whitish-black: #6F757C;
+  --color-black: #1B1D1F;
+  --color-green: #BEE3CC;
+  --color-browish: #302522;
+  --color-deepish-black: #111315;
+  --color-mid-black: #4D5562;
+  --color-orange-pink: #ED735D;
+  --background-image-caffee-small: url(./bg-cafe-sm.jpg)
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "DM Sans", serif;
+}
+body {
+  background-color: var(--color-deepish-black);
+  color: var(--color-whitish-yellow);
+  font-size: 16px;
+
+}
+.products {
+  padding: 0px 15px 0px 15px;
+}
+.product-container {
+  padding: 20px;
+}
+a.active {
+  background: #4D5562;
+  padding: 8px;
+  border-radius: 10px;
+}
+.all-products {
+  margin-top: 40px;
+}
+.btn {
+  padding: 5px;
+  border-radius: 5px;
+  width: 100px;
+}
+/* .home-container {
+  padding-bottom: 50px;
+} */
