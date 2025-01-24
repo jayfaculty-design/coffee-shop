@@ -1,7 +1,7 @@
 import React from "react";
 import Home from "./components/Home";
 
-import { BrowserRouter, Route, Routes } from "react-router";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router";
 import AllProducts from "./components/AllProducts";
 import AvailableProducts from "./components/AvailableProducts";
 
@@ -12,6 +12,7 @@ const App = () => {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />}>
+              <Route index element={<Navigate to="all-products" />} />
               <Route path="all-products" element={<AllProducts />} />
               <Route
                 path="available-products"
