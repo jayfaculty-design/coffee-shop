@@ -1,5 +1,7 @@
 @import "tailwindcss";
-
+@plugin "daisyui" {
+  exclude: footer, typography, glass, rootcolor, rootscrollgutter;
+}
 
 @theme {
   --color-*: initial;
@@ -48,4 +50,15 @@ a.active {
 }
 /* .home-container {
   padding-bottom: 50px;
+} */
+.header-top {
+  padding: 15px 20px 15px 20px;
+  
+}
+.cart-btn {
+  padding: 5px;
+  border-radius: 5px;
+}
+/* .cart-btn:active{
+  transform: translateY(4px);
 } */

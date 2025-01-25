@@ -67,7 +67,13 @@ const AllProducts = () => {
                     </p>
                   </div>
                   <p className="font-medium text-orange-pink">
-                    {product.available === false ? "Sold out" : ""}
+                    {product.available === false ? (
+                      "Sold out"
+                    ) : (
+                      <button className="btn cart-btn bg-yellowish text-[14px] text-deepish-black font-bold">
+                        Add To Cart
+                      </button>
+                    )}
                   </p>
                 </div>
               </div>
