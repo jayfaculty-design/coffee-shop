@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import useFetch from "../customHooks/useFetch";
+import { CartContext } from "../contexts/CartContext";
 
 const AvailableProducts = () => {
   const [loading, products, error, fetchData] = useFetch(
     "https://raw.githubusercontent.com/devchallenges-io/curriculum/refs/heads/main/4-frontend-libaries/challenges/group_1/data/simple-coffee-listing-data.json"
   );
+  const { addToCart } = useContext(CartContext);
   return (
     <div className="all-products grid gap-9 grid-cols-1 grid-rows-1">
       {loading && (
@@ -65,9 +67,12 @@ const AvailableProducts = () => {
                         {product.votes > 0 ? `(${product.votes} votes)` : ""}
                       </p>
                     </div>
-                    <p className="font-medium text-orange-pink">
-                      {product.available === false ? "Sold out" : ""}
-                    </p>
+                    <button
+                      onClick={() => addToCart(product)}
+                      className="btn cart-btn bg-yellowish text-[14px] text-deepish-black font-bold"
+                    >
+                      Add To Cart
+                    </button>
                   </div>
                 </div>
               );

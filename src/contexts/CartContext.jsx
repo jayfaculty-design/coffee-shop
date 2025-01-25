@@ -41,7 +41,9 @@ export const CartProvider = ({ children }) => {
   }
   function decreaseQuantity(item) {
     const existingItem = cartItems.find((product) => product.id === item.id);
-    if (existingItem) {
+    if (existingItem.quantity === 1) {
+      setCartItems(cartItems.filter((cartItem) => cartItem.id !== item.id));
+    } else {
       setCartItems(
         cartItems.map((product) =>
           product.id === item.id

@@ -11,14 +11,20 @@ const Cart = () => {
     increaseQuantity,
     decreaseQuantity,
   } = useContext(CartContext);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  const total = cartItems.reduce((accumulator, item) => {
+    let price = parseFloat(item.price.replace("$", ""));
+    let quantity = parseInt(item.quantity);
+    return accumulator + price * quantity;
+  }, 0);
   return (
     <div className="products absolute top-20 flex flex-col w-full  items-center h-[100vh]">
       <div className="bg-black product-container rounded-lg w-full">
         <div className="flex items-center justify-between">
-          <h1 className="text-3xl">Cart(0)</h1>
+          <h1 className="text-3xl">{`Cart(${cartItems.length})`}</h1>
           <p
             onClick={() => clearCart()}
             className="cursor-pointer underline underline-offset-3"
@@ -30,7 +36,10 @@ const Cart = () => {
           {cartItems.length === 0 ? (
             <div className="flex items-center justify-center flex-col gap-3 h-[50vh]">
               <p>Cart is Empty</p>
-              <Link to="/" className="bg-browish btn p-[5rem] w-[250px]">
+              <Link
+                to="/"
+                className="bg-browish btn p-[5rem] w-[250px] text-whitish-yellow"
+              >
                 Start Shopping
               </Link>
             </div>
@@ -92,6 +101,24 @@ const Cart = () => {
             </div>
           )}
         </div>
+        {cartItems.length >= 1 ? (
+          <>
+            <div className="flex justify-between">
+              <div></div>
+              <div className="total flex gap-3">
+                <p>Total</p>
+                <p>${total.toFixed(2)}</p>
+              </div>
+            </div>
+            <div className="flex justify-center">
+              <button className="checkout btn w-full bg-browish text-whitish-yellow">
+                Checkout
+              </button>
+            </div>
+          </>
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );

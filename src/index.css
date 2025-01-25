@@ -74,3 +74,10 @@ a.active {
   width: 40px;
   height: 20px;
 }
+.checkout {
+  position: relative;
+  margin-top: 10px;
+}
+.total {
+  margin-top: 30px;
+}

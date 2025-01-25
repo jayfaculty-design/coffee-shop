@@ -1,10 +1,13 @@
 import { IconCoffee, IconHeart, IconShoppingBag } from "@tabler/icons-react";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router";
-
+import { CartContext } from "../contexts/CartContext";
 
 const Header = () => {
- 
+  const { cartItems } = useContext(CartContext);
+
+  const count = cartItems.length;
+
   return (
     <div className="header-top fixed top-0 z-[999] w-full justify-between flex items-center">
       <Link to="/" className="flex flex-col items-center text-green">
@@ -18,7 +21,7 @@ const Header = () => {
         >
           <IconShoppingBag className="text-yellowish relative" size={30} />
           <span className="bg-green font-bold absolute top-5 left-4 flex items-center justify-center text-[10px] text-deepish-black h-4 w-4 rounded-full">
-            0
+            {count}
           </span>
         </NavLink>
         <NavLink

@@ -13,8 +13,8 @@ import Error404 from "./components/Error404";
 const App = () => {
   return (
     <BrowserRouter>
-      <Header />
       <CartProvider>
+        <Header />
         <Routes>
           <Route path="/" element={<Home />}>
             <Route index element={<Navigate to="all-products" />} />
