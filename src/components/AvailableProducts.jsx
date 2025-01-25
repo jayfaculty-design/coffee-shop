@@ -19,7 +19,7 @@ const AvailableProducts = () => {
               <p>{error}</p>
               <button
                 onClick={() => fetchData()}
-                className="btn text-whitish-yellow bg-browish flex items-center justify-center"
+                className="reload-btn btn text-whitish-yellow bg-browish flex items-center justify-center"
               >
                 Reload
               </button>

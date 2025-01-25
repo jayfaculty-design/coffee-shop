@@ -22,6 +22,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "DM Sans", serif;
+  scroll-behavior: smooth;
 }
 body {
   background-color: var(--color-deepish-black);
@@ -43,7 +44,7 @@ a.active {
 .all-products {
   margin-top: 40px;
 }
-.btn {
+.reload-btn {
   padding: 5px;
   border-radius: 5px;
   width: 100px;
@@ -52,7 +53,7 @@ a.active {
   padding-bottom: 50px;
 } */
 .header-top {
-  padding: 15px 20px 15px 20px;
+  padding: 15px 30px 15px 30px;
   
 }
 .cart-btn {
