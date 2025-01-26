@@ -9,24 +9,30 @@ import { CartProvider } from "./contexts/CartContext";
 import Cart from "./components/Cart";
 import Favorites from "./components/Favorites";
 import Error404 from "./components/Error404";
+import { FavoriteProvider } from "./contexts/FavoriteContext";
 
 const App = () => {
   return (
     <BrowserRouter>
-      <CartProvider>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />}>
-            <Route index element={<Navigate to="all-products" />} />
+      <FavoriteProvider>
+        <CartProvider>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />}>
+              <Route index element={<Navigate to="all-products" />} />
 
-            <Route path="all-products" element={<AllProducts />} />
-            <Route path="available-products" element={<AvailableProducts />} />
-          </Route>
-          <Route path="cart" element={<Cart />} />
-          <Route path="favorites" element={<Favorites />} />
-          <Route path="*" element={<Error404 />} />
-        </Routes>
-      </CartProvider>
+              <Route path="all-products" element={<AllProducts />} />
+              <Route
+                path="available-products"
+                element={<AvailableProducts />}
+              />
+            </Route>
+            <Route path="cart" element={<Cart />} />
+            <Route path="favorites" element={<Favorites />} />
+            <Route path="*" element={<Error404 />} />
+          </Routes>
+        </CartProvider>
+      </FavoriteProvider>
     </BrowserRouter>
   );
 };

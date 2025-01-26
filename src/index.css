@@ -59,6 +59,7 @@ a.active {
 .cart-btn {
   padding: 5px;
   border-radius: 5px;
+  border: none;
 }
 /* .cart-btn:active{
   transform: translateY(4px);
@@ -80,4 +81,10 @@ a.active {
 }
 .total {
   margin-top: 30px;
+}
+.favorite-items {
+  margin-top: 30px;
+}
+button {
+  border: none;
 }

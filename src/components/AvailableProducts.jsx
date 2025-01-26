@@ -1,12 +1,15 @@
 import React, { useContext } from "react";
 import useFetch from "../customHooks/useFetch";
 import { CartContext } from "../contexts/CartContext";
+import { IconHeart } from "@tabler/icons-react";
+import { FavoriteContext } from "../contexts/FavoriteContext";
 
 const AvailableProducts = () => {
   const [loading, products, error, fetchData] = useFetch(
     "https://raw.githubusercontent.com/devchallenges-io/curriculum/refs/heads/main/4-frontend-libaries/challenges/group_1/data/simple-coffee-listing-data.json"
   );
   const { addToCart } = useContext(CartContext);
+  const { addToFavorites } = useContext(FavoriteContext);
   return (
     <div className="all-products grid gap-9 grid-cols-1 grid-rows-1">
       {loading && (
@@ -40,6 +43,10 @@ const AvailableProducts = () => {
                     <p className="absolute flex items-center justify-center rounded-lg font-semibold top-2 left-3 text-[12px] text-black bg-yellowish w-14">
                       {product.popular === true ? "Popular" : ""}
                     </p>
+                    <IconHeart
+                      onClick={() => addToFavorites(product)}
+                      className="absolute btn bg-transparent border-none h-6 right-2.5 top-1.5 cursor-pointer"
+                    />
                   </div>
 
                   <div className="flex justify-between items-center">
