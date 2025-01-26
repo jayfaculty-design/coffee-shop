@@ -15,6 +15,12 @@
   --color-mid-black: #4D5562;
   --color-orange-pink: #ED735D;
   --background-image-caffee-small: url(./bg-cafe-sm.jpg)
+  --breakpoint-*: initial;
+  --breakpoint-xs: 370px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 758px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-2xl: 1536px;
 }
 
 *{
@@ -31,10 +37,10 @@ body {
 
 }
 .products {
-  padding: 0px 15px 0px 15px;
+  padding: 30px 30px 30px 30px;
 }
 .product-container {
-  padding: 20px;
+  padding: 50px;
 }
 a.active {
   background: #4D5562;

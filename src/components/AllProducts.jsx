@@ -13,28 +13,31 @@ const AllProducts = () => {
   const { addToCart, cartItems } = useContext(CartContext);
 
   return (
-    <div className="all-products grid gap-9 grid-cols-1 grid-rows-1">
+    <div>
       {loading && (
-        <div className="flex flex-col items-center justify-center h-[50vh]">
+        <div className="flex flex-col items-center w-full justify-center h-[50vh]">
           <img className="w-10" src="/loader.svg" alt="" />
           <p>Loading....</p>
         </div>
       )}
 
-      {products.length === 0
-        ? error && (
-            <div className="flex flex-col items-center justify-center gap-1 h-[50vh]">
-              <p>{error}</p>
-              <button
-                onClick={() => fetchData()}
-                className="reload-btn btn text-whitish-yellow bg-browish flex items-center justify-center"
-              >
-                Reload
-              </button>
-            </div>
-          )
-        : products.map((product) => {
+      {products.length === 0 ? (
+        error && (
+          <div className="flex flex-col items-center justify-center gap-1 h-[50vh]">
+            <p>{error}</p>
+            <button
+              onClick={() => fetchData()}
+              className="reload-btn btn text-whitish-yellow bg-browish flex items-center justify-center"
+            >
+              Reload
+            </button>
+          </div>
+        )
+      ) : (
+        <div className="all-products sm:grid-cols-2 md:grid-cols-3 grid gap-9 grid-cols-1 grid-rows-1">
+          {products.map((product) => {
             const isInCart = cartItems.some((item) => item.id === product.id);
+
             return (
               <div key={product.id} className="flex flex-col gap-3">
                 <div className="relative">
@@ -58,7 +61,7 @@ const AllProducts = () => {
                     {product.price}
                   </p>
                 </div>
-                <div className="flex justify-between items-center">
+                <div className="flex md:flex-col md:items-start md:gap-2 justify-between items-center">
                   <div className="flex gap-1 items-center flex-row">
                     <img
                       src={product.votes < 1 ? "/Star.svg" : "/Star_fill.svg"}
@@ -84,7 +87,7 @@ const AllProducts = () => {
                       <button
                         disabled={isInCart ? true : false}
                         onClick={() => addToCart(product)}
-                        className="btn cart-btn bg-yellowish text-[14px] text-deepish-black font-bold"
+                        className="btn disabled:text-whitish-yellow disabled:bg-whitish-black cart-btn bg-yellowish text-[14px] text-deepish-black font-bold"
                       >
                         {isInCart ? "Added To Cart" : "Add To Cart"}
                       </button>
@@ -94,6 +97,8 @@ const AllProducts = () => {
               </div>
             );
           })}
+        </div>
+      )}
     </div>
   );
 };

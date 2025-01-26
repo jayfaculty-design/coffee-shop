@@ -1,14 +1,15 @@
 import React from "react";
 import { NavLink, Outlet } from "react-router";
+import Footer from "./Footer";
 
 const Home = () => {
   return (
     <div className="home-container relative">
-      <div className="products absolute top-20 flex flex-col w-full  items-center h-[100vh] ">
+      <div className="products absolute top-20 flex flex-col w-full  items-center ">
         <div className="bg-black product-container rounded-lg w-full">
           <div className="flex flex-col items-center gap-5">
             <h1 className="text-3xl font-semibold">Our Collection</h1>
-            <p className="text-center text-whitish-black text-[14px] font-medium">
+            <p className="text-center md:w-96 md:text-[16px] text-whitish-black text-[14px] font-medium">
               Introducing Our Coffee Collection, a selection of unique coffees
               from different roast types and origins, expertly roasted in small
               batches and shipped fresh weekly

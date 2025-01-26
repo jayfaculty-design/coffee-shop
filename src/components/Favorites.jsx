@@ -7,12 +7,12 @@ import { IconTrash } from "@tabler/icons-react";
 const Favorites = () => {
   const { favoritesItems, removeFromFavorites, clearFavorites } =
     useContext(FavoriteContext);
-  const { addToCart } = useContext(CartContext);
+  const { addToCart, cartItems } = useContext(CartContext);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <div className="products absolute top-20 flex flex-col w-full  items-center h-[100vh]">
+    <div className="products absolute top-20 flex flex-col w-full  items-center ">
       <div className="bg-black product-container rounded-lg w-full">
         <div className="flex items-center justify-between">
           <h1 className="text-3xl">{`Favorites(${favoritesItems.length})`}</h1>
@@ -38,6 +38,9 @@ const Favorites = () => {
           ) : (
             <div className="grid gap-7 favorite-items">
               {favoritesItems.map((product) => {
+                const isInCart = cartItems.some(
+                  (item) => item.id === product.id
+                );
                 return (
                   <div key={product.id} className="flex gap-5 items-center">
                     <div>
@@ -62,16 +65,17 @@ const Favorites = () => {
                         {product.available === false ? (
                           <button
                             disabled
-                            className="btn cart-btn text-deepish-black bg-yellowish"
+                            className="btn disabled:text-whitish-yellow disabled:bg-whitish-black cart-btn text-deepish-black bg-yellowish"
                           >
                             Sold Out
                           </button>
                         ) : (
                           <button
+                            disabled={isInCart ? true : false}
                             onClick={() => addToCart(product)}
-                            className="btn cart-btn text-deepish-black bg-yellowish"
+                            className="btn disabled:text-whitish-yellow disabled:bg-whitish-black cart-btn text-deepish-black bg-yellowish"
                           >
-                            Add To Cart
+                            {isInCart ? "Added To Cart" : "Add To Cart"}
                           </button>
                         )}
                       </div>
