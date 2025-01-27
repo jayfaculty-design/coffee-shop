@@ -14,7 +14,7 @@ const Home = () => {
               from different roast types and origins, expertly roasted in small
               batches and shipped fresh weekly
             </p>
-            <div className="flex items-center gap-7 font-medium">
+            <div className="nav-links flex items-center gap-7 font-medium">
               <NavLink to="all-products">All Products</NavLink>
               <NavLink to="available-products">Available Now</NavLink>
             </div>

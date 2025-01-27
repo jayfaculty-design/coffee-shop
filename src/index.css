@@ -110,3 +110,15 @@ button {
   padding: 10px;
   border-radius: 100%;
 }
+
+@media screen and (max-width: 398px) {
+  /* body {
+    font-size: 10px;
+  } */
+  .products {
+    padding: 15px 15px 15px 15px;
+  }
+  .nav-links {
+    font-size: 11px;
+  }
+}
