@@ -13,7 +13,7 @@ import { easeInOut } from "motion";
 const Footer = () => {
   return (
     <div>
-      <footer className="footer flex justify-between bg-black">
+      <footer className="footer flex flex-col md:flex-row md:justify-between gap-5 items-center justify-center bg-black">
         <motion.div
           initial={{
             opacity: 0,
@@ -30,13 +30,13 @@ const Footer = () => {
           viewport={{
             once: true,
           }}
-          className="flex items-center gap-5"
+          className="flex flex-col md:flex-row justify-center items-center gap-5"
         >
-          <Link to="/" className="flex flex-col text-yellowish">
+          <Link to="/" className="flex w-fit flex-col text-yellowish">
             <IconCoffee size={40} />
-            <p className="text-[12px]">JayFee</p>
+            <p className="text-[12px] text-black bg-yellowish">JayFee</p>
           </Link>
-          <p>
+          <p className="text-center">
             Copyright © {new Date().getFullYear()} - All right reserved JayWebs
             Inc.
           </p>
