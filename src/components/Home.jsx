@@ -5,7 +5,7 @@ import Footer from "./Footer";
 const Home = () => {
   return (
     <div className="home-container relative">
-      <div className="products absolute top-20 flex flex-col w-full  items-center ">
+      <div className="products flex flex-col w-full  items-center ">
         <div className="bg-black product-container rounded-lg w-full">
           <div className="flex flex-col items-center gap-5">
             <h1 className="text-3xl font-semibold">Our Collection</h1>

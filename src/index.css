@@ -38,6 +38,7 @@ body {
 }
 .products {
   padding: 30px 30px 30px 30px;
+  margin-top: 60px;
 }
 .product-container {
   padding: 50px;
@@ -55,9 +56,7 @@ a.active {
   border-radius: 5px;
   width: 100px;
 }
-/* .home-container {
-  padding-bottom: 50px;
-} */
+
 .header-top {
   padding: 15px 30px 15px 30px;
   
@@ -93,4 +92,21 @@ a.active {
 }
 button {
   border: none;
+}
+.footer {
+  padding: 30px;
+}
+.footer .social a {
+  height: 40px;
+  width: 40px;
+  transition: all 0.3s ease-in-out;
+}
+.footer .social a:hover {
+  background: var(--color-whitish-yellow);
+  color: var(--color-deepish-black);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: 100%;
 }

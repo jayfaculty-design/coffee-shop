@@ -3,6 +3,7 @@ import { FavoriteContext } from "../contexts/FavoriteContext";
 import { Link } from "react-router";
 import { CartContext } from "../contexts/CartContext";
 import { IconTrash } from "@tabler/icons-react";
+import { motion } from "motion/react";
 
 const Favorites = () => {
   const { favoritesItems, removeFromFavorites, clearFavorites } =
@@ -12,7 +13,7 @@ const Favorites = () => {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <div className="products absolute top-20 flex flex-col w-full  items-center ">
+    <div className="products flex flex-col w-full  items-center ">
       <div className="bg-black product-container rounded-lg w-full">
         <div className="flex items-center justify-between">
           <h1 className="text-3xl">{`Favorites(${favoritesItems.length})`}</h1>
@@ -70,13 +71,14 @@ const Favorites = () => {
                             Sold Out
                           </button>
                         ) : (
-                          <button
+                          <motion.button
+                            whileTap={{ scale: 0.8 }}
                             disabled={isInCart ? true : false}
                             onClick={() => addToCart(product)}
-                            className="btn disabled:text-whitish-yellow disabled:bg-whitish-black cart-btn text-deepish-black bg-yellowish"
+                            className="btn disabled:text-whitish-yellow disabled:bg-whitish-black cart-btn bg-yellowish text-[14px] text-deepish-black font-bold"
                           >
                             {isInCart ? "Added To Cart" : "Add To Cart"}
-                          </button>
+                          </motion.button>
                         )}
                       </div>
                     </div>

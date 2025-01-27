@@ -10,6 +10,7 @@ import Cart from "./components/Cart";
 import Favorites from "./components/Favorites";
 import Error404 from "./components/Error404";
 import { FavoriteProvider } from "./contexts/FavoriteContext";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
@@ -31,6 +32,7 @@ const App = () => {
             <Route path="favorites" element={<Favorites />} />
             <Route path="*" element={<Error404 />} />
           </Routes>
+          <Footer />
         </CartProvider>
       </FavoriteProvider>
     </BrowserRouter>

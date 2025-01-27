@@ -4,6 +4,8 @@ import useFetch from "../customHooks/useFetch";
 import { CartContext } from "../contexts/CartContext";
 import { IconHeart } from "@tabler/icons-react";
 import { FavoriteContext } from "../contexts/FavoriteContext";
+import { motion } from "motion/react";
+import { easeInOut } from "motion";
 
 const AllProducts = () => {
   const { addToFavorites } = useContext(FavoriteContext);
@@ -39,7 +41,22 @@ const AllProducts = () => {
             const isInCart = cartItems.some((item) => item.id === product.id);
 
             return (
-              <div key={product.id} className="flex flex-col gap-3">
+              <motion.div
+                initial={{ x: 12, opacity: 0 }}
+                viewport={{
+                  once: true,
+                }}
+                whileInView={{
+                  x: 0,
+                  opacity: 1,
+                  transition: {
+                    duration: 0.3,
+                    ease: easeInOut,
+                  },
+                }}
+                key={product.id}
+                className="flex flex-col gap-3"
+              >
                 <div className="relative">
                   <img
                     className="rounded-2xl relative"
@@ -49,10 +66,13 @@ const AllProducts = () => {
                   <p className="absolute flex items-center justify-center rounded-lg font-semibold top-2 left-3 text-[12px] text-black bg-yellowish w-14">
                     {product.popular === true ? "Popular" : ""}
                   </p>
-                  <IconHeart
+                  <motion.div
+                    whileTap={{ scale: 0.8 }}
                     onClick={() => addToFavorites(product)}
                     className="absolute btn bg-transparent border-none h-6 right-2.5 top-1.5 cursor-pointer"
-                  />
+                  >
+                    <IconHeart />
+                  </motion.div>
                 </div>
 
                 <div className="flex justify-between items-center">
@@ -84,17 +104,18 @@ const AllProducts = () => {
                     {product.available === false ? (
                       "Sold out"
                     ) : (
-                      <button
+                      <motion.button
+                        whileTap={{ scale: 0.8 }}
                         disabled={isInCart ? true : false}
                         onClick={() => addToCart(product)}
                         className="btn disabled:text-whitish-yellow disabled:bg-whitish-black cart-btn bg-yellowish text-[14px] text-deepish-black font-bold"
                       >
                         {isInCart ? "Added To Cart" : "Add To Cart"}
-                      </button>
+                      </motion.button>
                     )}
                   </p>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>

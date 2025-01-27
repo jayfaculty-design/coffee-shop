@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { CartContext } from "../contexts/CartContext";
 import { Link, NavLink } from "react-router";
 import { IconX } from "@tabler/icons-react";
+import { motion } from "motion/react";
 
 const Cart = () => {
   const {
@@ -21,7 +22,7 @@ const Cart = () => {
     return accumulator + price * quantity;
   }, 0);
   return (
-    <div className="products absolute top-20 flex flex-col w-full  items-center h-[100vh]">
+    <div className="products flex flex-col w-full  items-center">
       <div className="bg-black product-container rounded-lg w-full">
         <div className="flex items-center justify-between">
           <h1 className="text-3xl">{`Cart(${cartItems.length})`}</h1>
@@ -111,9 +112,14 @@ const Cart = () => {
               </div>
             </div>
             <div className="flex justify-center">
-              <button className="checkout btn w-full bg-browish text-whitish-yellow">
+              <motion.button
+                whileTap={{
+                  scale: 0.9,
+                }}
+                className="checkout btn w-full bg-browish text-whitish-yellow"
+              >
                 Checkout
-              </button>
+              </motion.button>
             </div>
           </>
         ) : (
